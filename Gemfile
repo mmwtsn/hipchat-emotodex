@@ -4,7 +4,6 @@ gem 'sinatra'
 
 group :development, :test do
   gem 'thin'
-  gem 'compass'
 
   gem 'rspec'
   gem 'rb-fsevent'
@@ -15,5 +14,6 @@ group :development, :test do
   gem 'jasmine'
 
   gem 'guard-rspec', require: false
+  gem 'guard-compass'
   gem 'guard-livereload'
 end

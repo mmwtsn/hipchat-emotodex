@@ -24,6 +24,9 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
+    guard-compass (1.0.0)
+      compass (>= 0.10.5)
+      guard (~> 2.0)
     guard-livereload (2.1.0)
       em-websocket (~> 0.5)
       guard (~> 2.0)
@@ -85,7 +88,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  compass
+  guard-compass
   guard-livereload
   guard-rspec
   jasmine

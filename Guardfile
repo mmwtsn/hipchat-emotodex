@@ -10,3 +10,5 @@ guard 'livereload' do
   watch(%r{^public/javascripts/.*/(.*)\.js})
   watch(%r{^public/javascripts/(.*)\.js})
 end
+
+guard :compass
