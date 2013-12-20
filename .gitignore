@@ -1,0 +1,4 @@
+.DS_store
+.sass-cache/
+.tmp/
+.emoji-config.yaml
