@@ -1,4 +1,6 @@
 require 'rack/test'
+require 'webmock'
+require 'vcr'
 require_relative '../app.rb'
 
 set :environment, :test
@@ -14,3 +16,7 @@ RSpec.configure do |c|
   c.include RSpecHelper
 end
 
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/dish_cassettes'
+  c.hook_into :webmock
+end
