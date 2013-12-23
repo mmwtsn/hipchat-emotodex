@@ -11,4 +11,3 @@ describe 'This Sinatra application' do
     last_response.status.should == 404
   end
 end
-
