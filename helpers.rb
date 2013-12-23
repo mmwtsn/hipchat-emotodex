@@ -10,4 +10,8 @@ module Helpers
     end
   end
 
+  def all_emoticons
+    hipchat = HipChat.new
+    emoticons = hipchat.get_emoticons['items']
+  end
 end
