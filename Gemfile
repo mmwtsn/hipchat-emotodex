@@ -17,9 +17,6 @@ group :development, :test do
   # JavScript unit test lirbrary
   gem 'jasmine'
 
-  # stub HTTP requests
-  gem 'webmock'
-
   # Ruby task runner
   gem 'rb-fsevent'
   gem 'guard-rspec'
