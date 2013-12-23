@@ -24,4 +24,3 @@ error do
   status 500
   erb 500.to_s.to_sym
 end
-
