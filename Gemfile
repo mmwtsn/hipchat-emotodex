@@ -2,22 +2,25 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'httparty'
+gem 'redis'
 
 group :development, :test do
+  # local server
   gem 'thin'
 
-  gem 'rspec'
-  gem 'rb-fsevent'
-
-  gem 'webmock', '~>1.8.0'
-  gem 'vcr'
-
+  # middleware
   gem 'rack'
   gem 'rack-test', :require => 'rack/test'
 
+  # Ruby unit test library
+  gem 'rspec'
+
+  # JavScript unit test lirbrary
   gem 'jasmine'
 
-  gem 'guard-rspec', require: false
+  # Ruby task runner
+  gem 'rb-fsevent'
+  gem 'guard-rspec'
   gem 'guard-compass'
   gem 'guard-livereload'
 end
