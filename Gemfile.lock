@@ -67,6 +67,7 @@ GEM
     rb-fsevent (0.9.3)
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
+    redis (3.0.6)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -101,6 +102,7 @@ DEPENDENCIES
   rack
   rack-test
   rb-fsevent
+  redis
   rspec
   sinatra
   thin

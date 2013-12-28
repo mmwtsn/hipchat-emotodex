@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'httparty'
+gem 'redis'
 
 group :development, :test do
   # local server
