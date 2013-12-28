@@ -2,15 +2,27 @@
 require 'bundler'
 Bundler.require
 
-# Load helper file
+# Load and include helper methods
 require './helpers'
-
-# Include helper methods
 include Helpers
 
-# Index
+configure do
+  CACHE ||= Redis.new
+  unless emoticons_in(CACHE)
+    CACHE.update
+  end
+end
+
+# Display Emoticons
 get '/' do
+  @emoticons = render_emoticons(CACHE)
   erb :index
+end
+
+# Update Emoticons
+get '/refresh/?' do
+  CACHE.update
+  redirect '/'
 end
 
 # 404
