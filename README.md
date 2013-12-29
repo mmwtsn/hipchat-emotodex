@@ -10,11 +10,10 @@ Check out the [Do Something Emoji Rolodex](http://emoji.dosomething.org/) for so
 To run the Emoji Rolodex locally, you will need Ruby, Ruby Gems and Bundler installed on your system.
 
 To get started:
-- Visit the [admin page](https://www.hipchat.com/admin/emoticons) for your group and upload some custom emoticons
-- [Create an API key](https://hipchat.com/account/api)
+- Visit the [HipChat admin page](https://www.hipchat.com/admin/emoticons) for your group and upload some custom emoticons
+- [Create a HipChat API key](https://hipchat.com/account/api)
 - Clone this repository, `cd` into the Emoji Rolodex directory and run `bundle install`
-- Add your API key to the [YAML](http://www.yaml.org/) file
-- `rackup` to start the server!
+- `rackup` or to start the server!
 
 ## Usage
 Once you have the server running click on any emoticon to be prompted with its shortcut. You can also search for an emoticon and press `enter` to trigger the shortcut prompt. Note: this will only trigger once you are down to a single search result.
@@ -25,6 +24,7 @@ Once you have the server running click on any emoticon to be prompted with its s
 ## License
 The MIT License (MIT)
 
+````
 Copyright (c) 2014 M. Maxwell Watson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,3 +44,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+````
