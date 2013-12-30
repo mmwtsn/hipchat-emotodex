@@ -1,0 +1,115 @@
+// Variables
+$header-color: #fff;
+$header-shadow-color: #087ac3;
+$emoticon-bg: #fff;
+$emoticon-bg-hover: #ff0;
+$emoticon-border-hover: #fb0;
+$border-color: #ccc;
+
+// Mixins
+@mixin border-bottom {
+  border-bottom: 3px solid $border-color;
+}
+
+@mixin border-radius {
+  border-radius: 3px;
+}
+
+@mixin header-shadow {
+  text-shadow: 0.3rem 0.3rem $header-shadow-color;
+}
+
+// Styles
+.emoticon {
+  float: left;
+  width: 55px;
+  height: 55px;
+  padding: 5px;
+  margin: 5px;
+  background: $emoticon-bg;
+  border-radius: 3px;
+  border-bottom: 3px solid #ccc;
+
+  &:hover {
+    cursor: pointer;
+    background: $emoticon-bg-hover;
+    border-bottom: 3px solid $emoticon-border-hover;
+  }
+
+  .icon {
+    margin: 15px;
+  }
+
+  .icon,
+  .shortcut {
+    display: block;
+    float: left;
+  }
+
+  .shortcut {
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+.header {
+  padding: 50px 0 0 0;
+  max-width: 98%;
+  margin: 0 auto;
+
+  @include break(lg) {
+    font-size: 0.8em;
+  }
+
+  @include break(md) {
+    font-size: 0.6em;
+  }
+
+  h1, h2, h3, h4 {
+    color: $header-color;
+    text-align: center;
+    transform: rotate(-6deg);
+    @include header-shadow;
+  }
+}
+
+.search {
+  padding: 20px 0 0;
+  margin: 40px 0 0px;
+
+  .preview {
+    display: block;
+    margin: 32px 0 24px;
+    color: $header-color;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Knewave;
+    @include header-shadow;
+  }
+
+  input[type="text"] {
+    display: block;
+    width: 10rem;
+    height: 24px;
+
+    margin: 0 auto;
+    padding: 8px 8px 8px 12px;
+
+    color: #333;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+    text-indent: 24px;
+
+    border: 0;
+    @include border-radius;
+    @include border-bottom;
+
+    background-image: url('/images/search.png');
+    background-repeat: no-repeat;
+    background-size: 16px auto;
+    background-position: 12px 50%;
+
+    box-shadow: 0 0 0 16px $header-shadow-color;
+  }
+}
