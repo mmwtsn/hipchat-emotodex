@@ -6,31 +6,40 @@
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
     <link href="/css/styles.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
   </head>
 
-  <body>
+  <body class="wrapper">
     <header class="header">
-      <p>HipChat Emoji Rolodex</p>
-      <p>Start typing to find an emoticon!</p>
+      <h2>DoSomething.org's</h2>
+      <h1>HipChat Emotodex</h1>
+      <h3>Start typing to find an emoticon!</h3>
+
+      <section class="search">
+        <input id="input" type="text" />
+        <p id="preview" class="preview">( <span id="shortcut">shortcut</span> )</p>
+      </section>
     </header>
 
-    <section class="search">
-      <input id="input" type="text" />
-    </section>
-
-    <main class="main wrapper" role="main">
-      <%= yield %>
+    <main class="main" role="main">
+      <div class="container">
+        <%= yield %>
+      </div>
     </main>
 
-    <footer class="footer">
-      <small>Powered by: <a href="https://github.com/mmwtsn/emoji-rolodex">The Emoji Rolodex</a></small>
-    </footer>
-
+      <footer class="footer">
+        <div class="container">
+          <!--
+          TODO - Add credits, GitHub follow buttons, etc.
+          <small>Powered by: <a href="https://github.com/mmwtsn/emoji-rolodex">The Emoji Rolodex</a></small>
+          -->
+        </div>
+      </footer>
     <script src="/javascripts/script.js" type="text/javascript"></script>
   </body>
 </html>
-
