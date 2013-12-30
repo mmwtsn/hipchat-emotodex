@@ -1,3 +1,8 @@
+// Breakpoint variables
+$sm: 320px;
+$md: 600px;
+$lg: 750px;
+
 // Breakpoint helpers
 @mixin break($point) {
   @if $point == xl {
@@ -28,4 +33,3 @@
 @function em-calc($target) {
   @return $target / 16 * 1rem;
 }
-
