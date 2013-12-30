@@ -1,8 +1,5 @@
 <% @emoticons.each do |emoticon| %>
-
-  <figure class="emoji">
+  <figure data-shortcut="<%= emoticon['shortcut'] %>" class="emoticon">
     <img class="icon" src="<%= emoticon['url'] %>" alt="emoticon" />
-    <figcaption class="shortcut"><%= emoticon['shortcut'] %></figcaption>
   </figure>
-
 <% end %>
