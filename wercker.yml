@@ -1,0 +1,10 @@
+box: wercker/ruby
+build:
+  steps:
+    # Install Ruby Gems
+    - bundle-install
+
+    # Run test suite
+    - script:
+        name: rspec
+        code: bundle exec rspec
