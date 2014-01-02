@@ -1,4 +1,7 @@
 box: wercker/ruby
+services:
+  # Include Redis for test suite
+  - wercker/redis
 build:
   steps:
     # Install Ruby Gems
