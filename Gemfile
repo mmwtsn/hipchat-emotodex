@@ -8,10 +8,6 @@ gem 'sinatra'
 gem 'httparty'
 gem 'redis'
 
-group :production do
-  gem 'unicorn'
-end
-
 group :development, :test do
   # local server
   gem 'thin'
