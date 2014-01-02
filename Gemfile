@@ -7,11 +7,9 @@ ruby '2.0.0'
 gem 'sinatra'
 gem 'httparty'
 gem 'redis'
+gem 'thin'
 
 group :development, :test do
-  # local server
-  gem 'thin'
-
   # middleware
   gem 'rack'
   gem 'rack-test', :require => 'rack/test'
