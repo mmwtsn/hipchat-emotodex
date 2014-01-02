@@ -1,17 +1,18 @@
-# Emoji Rolodex
+# HipChat Emotodex
 
 ## Description
 A simple application for viewing and searching all custom emoticons uploaded to a [HipChat](http://www.hipchat.com/) group.
 
-## Example Rolodex
-Check out the [Do Something Emoji Rolodex](http://emoji.dosomething.org/) for some custom emoticon ideas. If you like the set give Do Something's Chief Emoji Architect, [Dave Furnes](http://twitter.com/dfurnes) a shout on Twitter!
+## Example Emotodex
+Check out the [Do Something Emotodex](http://emoji.dosomething.org/) for some custom emoticon ideas. If you like the set give Do Something's Chief Emoji Architect, [Dave Furnes](http://twitter.com/dfurnes) a shout on Twitter!
 
 ## Development
-To run the Emoji Rolodex locally, you will need Ruby, Ruby Gems and Bundler installed on your system.
+To run the Emotodex locally, you will need Ruby, Ruby Gems and Bundler installed on your system.
 
 To get started:
 - Visit the [HipChat admin page](https://www.hipchat.com/admin/emoticons) for your group and upload some custom emoticons
 - [Create a HipChat API key](https://hipchat.com/account/api)
+- Make your API key available in your development environment under the key "HIPCHAT_API" (if you're using Bash, run `export HIPCHAT_API=<your_api_key>`)
 - Clone this repository, `cd` into the Emoji Rolodex directory and run `bundle install`
 - `rackup` or to start the server!
 
