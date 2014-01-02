@@ -17,9 +17,6 @@ group :development, :test do
   # Ruby unit test library
   gem 'rspec'
 
-  # JavScript unit test lirbrary
-  gem 'jasmine'
-
   # Ruby task runner
   gem 'rb-fsevent'
   gem 'guard-rspec'
