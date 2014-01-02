@@ -17,7 +17,8 @@ module Helpers
   # Redis Monkey Patch
   class Redis
     def initialize
-      @cache = Redis.new
+      uri = URI.parse(ENV["REDISTOGO_URL"])
+      @cache = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
       @cache.flushall
     end
 
