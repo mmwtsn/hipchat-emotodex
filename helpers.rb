@@ -16,7 +16,7 @@ module Helpers
 
   # Redis Monkey Patch
   class Redis
-    def initialize 
+    def initialize
       @cache = Redis.new
       @cache.flushall
     end
