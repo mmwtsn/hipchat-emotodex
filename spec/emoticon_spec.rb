@@ -10,38 +10,6 @@ describe HipChat do
   end
 end
 
-describe Redis do
-  before(:all) do
-    @cache = Redis.new
-  end
-
-  describe '#set, #get' do
-    it 'should return set values' do
-      @cache.set('foo', 'bar')
-      @cache.get('foo').should eql 'bar'
-    end
-
-    it 'should reset values' do
-      @cache.set('foo', 'bash')
-      @cache.get('foo').should_not eql 'bar'
-    end
-  end
-
-  describe Helpers do
-    describe '#emoticons_in' do
-      it 'should check the cache for emoticons' do
-        emoticons_in(@cache).should eql true
-      end
-    end
-
-    describe '#render_emoticons' do
-      it 'should return a Hash' do
-        render_emoticons(@cache).class.should eql Array
-      end
-    end
-  end
-end
-
 describe Helpers, '#new_query' do
   before(:all) do
     @query = new_query
