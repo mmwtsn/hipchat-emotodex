@@ -14,18 +14,9 @@ module Helpers
     end
   end
 
-  # Redis Monkey Patch
-  class Redis
-    def initialize
-      uri = URI.parse(ENV["REDISTOGO_URL"])
-      @cache = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
-      @cache.flushall
-    end
-
-    # Refresh cache with new GET request to HipChat
-    def update
-      @cache.set('emoticons', new_query)
-    end
+  # Refresh cache with new GET request to HipChat
+  def update(cache)
+    cache.set('emoticons', new_query)
   end
 
   # GET emoticons from HipChat API and return the response body
