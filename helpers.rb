@@ -20,11 +20,11 @@ module Helpers
       @cache = Redis.new
       @cache.flushall
     end
+  end
 
-    # Refresh cache with new GET request to HipChat
-    def update
-      @cache.set('emoticons', new_query)
-    end
+  # Refresh cache with new GET request to HipChat
+  def update(cache)
+    cache.set('emoticons', new_query)
   end
 
   # GET emoticons from HipChat API and return the response body
