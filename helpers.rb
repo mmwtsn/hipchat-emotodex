@@ -14,14 +14,6 @@ module Helpers
     end
   end
 
-  # Redis Monkey Patch
-  class Redis
-    def initialize 
-      @cache = Redis.new
-      @cache.flushall
-    end
-  end
-
   # Refresh cache with new GET request to HipChat
   def update(cache)
     cache.set('emoticons', new_query)
