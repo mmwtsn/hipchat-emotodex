@@ -1,4 +1,5 @@
 # HipChat Emotodex
+[![wercker status](https://app.wercker.com/status/852bbf5b21f6f6fc035b06bc03690699 "wercker status")](https://app.wercker.com/project/bykey/852bbf5b21f6f6fc035b06bc03690699)
 
 ## Description
 A simple application for viewing and searching all custom emoticons uploaded to a [HipChat](http://www.hipchat.com/) group.
