@@ -9,7 +9,7 @@ include Helpers
 configure do
   CACHE ||= Redis.new
   unless emoticons_in(CACHE)
-    CACHE.update
+    update(CACHE)
   end
 end
 
@@ -21,7 +21,7 @@ end
 
 # Update Emoticons
 get '/refresh/?' do
-  CACHE.update
+  update(CACHE)
   redirect '/'
 end
 
