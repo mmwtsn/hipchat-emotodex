@@ -1,27 +1,26 @@
 # HipChat Emotodex
-[![wercker status](https://app.wercker.com/status/852bbf5b21f6f6fc035b06bc03690699 "wercker status")](https://app.wercker.com/project/bykey/852bbf5b21f6f6fc035b06bc03690699)
 
 ## Description
 A simple application for viewing and searching all custom emoticons uploaded to a [HipChat](http://www.hipchat.com/) group.
 
 ## Example Emotodex
-Check out the [Do Something Emotodex](http://emoji.dosomething.org/) for some custom emoticon ideas. If you like the set give Do Something's Chief Emoji Architect, [Dave Furnes](http://twitter.com/dfurnes) a shout on Twitter!
+Check out the [Do Something Emotodex](http://emoticons.dosomething.org/) for some custom emoticon ideas. If you like the set give Do Something's Chief Emoji Architect, [Dave Furnes](http://twitter.com/dfurnes) a shout on Twitter!
 
 ## Development
-To run the Emotodex locally, you will need Ruby, Ruby Gems and Bundler installed on your system.
+To run the Emotodex locally, you will need Ruby, Ruby Gems, Bundler and [Redis](http://redis.io) installed on your system. Redis is an open source key-value store that is used by the HipChat Emotodex as a cache.
 
 To get started:
 - Visit the [HipChat admin page](https://www.hipchat.com/admin/emoticons) for your group and upload some custom emoticons
 - [Create a HipChat API key](https://hipchat.com/account/api)
-- Make your API key available in your development environment under the key "HIPCHAT_API" (if you're using Bash, run `export HIPCHAT_API=<your_api_key>`)
-- Clone this repository, `cd` into the Emoji Rolodex directory and run `bundle install`
+- Assign your API key to the "HIPCHAT_API" environment variable (add `export HIPCHAT_API=<your_api_key>` to your `.bash_profile`)
+- Clone this repository, `cd` into the HipChat Rolodex directory and run `bundle install`
 - `rackup` or to start the server!
 
 ## Usage
 Once you have the server running click on any emoticon to be prompted with its shortcut. You can also search for an emoticon and press `enter` to trigger the shortcut prompt. Note: this will only trigger once you are down to a single search result.
 
 ## Author
-[Maxwell Watson](http://twitter.com/mmwtsn)
+[M. Maxwell Watson](http://mmwtsn.com/)
 
 ## License
 The MIT License (MIT)
