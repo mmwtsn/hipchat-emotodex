@@ -2,6 +2,32 @@
 require 'redis'
 require 'json'
 
+class GHButton
+  attr_accessor :user, :repo
+  def initialize(user, repo)
+    @user   = user
+    @repo   = repo
+  end
+
+  def build(action="star")
+    # Available GitHub Button types
+    actions = ['star', 'fork', 'follow']
+
+    # Ensure button type exists
+    unless actions.include? action
+      raise ArgumentError, 'GitHub Button not available with specified action'
+    end
+
+    # Ensure argument type is valid
+    unless action.is_a? String
+      raise ArgumentError, "Expected String, got #{action.class}"
+    end
+
+    # Return GitHub Button
+    "<iframe src=\"#{@user}\" class=\"#{action}\">#{@repo}</iframe>"
+  end
+end
+
 module Helpers
 
   # HipChat API Helpers
