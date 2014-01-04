@@ -10,6 +10,12 @@ module Helpers
     base_uri 'https://api.hipchat.com/v2'
 
     def get_emoticons
+      # Ensure API key is set and available before proceeding
+      unless ENV['HIPCHAT_API']
+        raise 'HipChat API key not accessible under "HIPCHAT_API" key. See README.'
+      end
+      
+      # Build GET request to 'emoticon' endpoint of HipChat API v2.0
       self.class.get '/emoticon', query: { 'auth_token' => ENV['HIPCHAT_API'], 'type' => 'group' }
     end
   end
@@ -21,8 +27,15 @@ module Helpers
 
   # GET emoticons from HipChat API and return the response body
   def new_query
-    hipchat = HipChat.new
-    emoticons = hipchat.get_emoticons.response.body
+    hipchat = HipChat.new.get_emoticons
+
+    # Proceed only if GET request is successful
+    if hipchat.response.code != 200.to_s
+      raise "Unable to successfully query the HipChat API. Error code: #{hipchat.response.code}"
+    end
+
+    # Return body of GET request from HipChat
+    emoticons = hipchat.response.body
   end
 
   # Check if 'emoticons' key exists in Redis cache
