@@ -70,6 +70,13 @@ describe GHButton do
       b = @button.style('star', large: true, count: true)
       b.match(/size=large.*count=true/).should be_true
     end
+
+    # Format the requested button dimensions correctly 
+    # TODO!
+    # TODO!
+    # TODO!
+    # TODO!
+
   end
 end
 
