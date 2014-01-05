@@ -9,13 +9,13 @@ class GHButton
     @repo   = repo
   end
 
-  def build(action="star")
+  def build(action="follow")
     # Available GitHub Button types
-    actions = ['star', 'fork', 'follow']
+    actions = ['watch', 'fork', 'follow']
 
     # Ensure button type exists
     unless actions.include? action
-      raise ArgumentError, 'GitHub Button not available with specified action'
+      raise ArgumentError, %Q{#{action.capitalize} button not available. Try "watch", "fork" or "follow"}
     end
 
     # Ensure argument type is valid
@@ -24,7 +24,7 @@ class GHButton
     end
 
     # Return GitHub Button
-    "<iframe src=\"#{@user}\" class=\"#{action}\">#{@repo}</iframe>"
+    %Q{<iframe src="http://ghbtns.com/github-btn.html?user=#{@user}&repo=#{@repo}&type=#{action}&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>}
   end
 end
 

@@ -12,12 +12,12 @@ end
 
 describe GHButton do
   before(:all) do
-    @button = GHButton.new('A. User', 'a-repository')
+    @button = GHButton.new('a-user', 'a-repository')
   end
 
   describe '#initialize' do
     it 'gets the user name' do
-      @button.user.should eql 'A. User'
+      @button.user.should eql 'a-user'
     end
 
     it 'gets the repository name' do
@@ -31,19 +31,19 @@ describe GHButton do
     end
 
     it 'returns the correct string' do
-      @button.build.should eql "<iframe src=\"A. User\" class=\"star\">a-repository</iframe>"
+      @button.build.should eql %Q{<iframe src="http://ghbtns.com/github-btn.html?user=a-user&repo=a-repository&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>}
     end
 
     it 'contains the user name' do
-      @button.build.match(%r(A. User)).should be_true
+      @button.build.match(%r(a-user)).should be_true
     end
 
     it 'contains the repo name' do
       @button.build.match(%r(a-repository)).should be_true
     end
 
-    it 'accepts "star"' do
-      @button.build("star").match(%r(star)).should be_true
+    it 'accepts "watch"' do
+      @button.build("watch").match(%r(watch)).should be_true
     end
 
     it 'accepts "fork"' do
@@ -59,6 +59,7 @@ describe GHButton do
     end
 
     it 'does not accept a non-standard String' do
+      b = GHButton.new('mmwtsn', 'hipchat-emotodex')
       expect{@button.build('bananas')}.to raise_error(ArgumentError)
     end
   end
