@@ -3,3 +3,19 @@
     <img class="icon" src="<%= emoticon['url'] %>" alt="emoticon" />
   </figure>
 <% end %>
+
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('fork') %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('watch') %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('follow') %>
+
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('fork', count: true) %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('watch', count: true) %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('follow', count: true) %>
+
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('fork', large: true) %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('watch', large: true) %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('follow', large: true) %>
+
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('fork', count: true, large: true) %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('watch', count: true, large: true) %>
+<%= GHButton.new('mmwtsn', 'hipchat-emotodex').build('follow', count: true, large: true) %>
