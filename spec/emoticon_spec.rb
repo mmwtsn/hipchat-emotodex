@@ -31,7 +31,7 @@ describe GHButton do
     end
 
     it 'returns the correct string' do
-      @button.build.should eql %Q{<iframe src="http://ghbtns.com/github-btn.html?user=a-user&repo=a-repository&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>}
+      @button.build.should eql %Q(<iframe src="http://ghbtns.com/github-btn.html?user=a-user&repo=a-repository&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>)
     end
 
     it 'contains the user name' do
@@ -61,6 +61,11 @@ describe GHButton do
     it 'does not accept a non-standard String' do
       b = GHButton.new('mmwtsn', 'hipchat-emotodex')
       expect{@button.build('bananas')}.to raise_error(ArgumentError)
+    end
+
+    it 'accepts a hash of options for size and count' do
+      b = @button.build('watch', large: true, count: true)
+      b.match(/size=large.*count=true/).should be_true
     end
   end
 end

@@ -5,26 +5,35 @@ require 'json'
 class GHButton
   attr_accessor :user, :repo
   def initialize(user, repo)
-    @user   = user
-    @repo   = repo
+    @user = user
+    @repo = repo
   end
 
-  def build(action="follow")
+  def build(type="follow", options={})
     # Available GitHub Button types
-    actions = ['watch', 'fork', 'follow']
+    types = ['watch', 'fork', 'follow']
 
     # Ensure button type exists
-    unless actions.include? action
-      raise ArgumentError, %Q{#{action.capitalize} button not available. Try "watch", "fork" or "follow"}
+    unless types.include? type
+      raise ArgumentError, %Q(#{type} button not available. Try "watch", "fork" or "follow")
     end
 
     # Ensure argument type is valid
-    unless action.is_a? String
-      raise ArgumentError, "Expected String, got #{action.class}"
+    unless type.is_a? String
+      raise ArgumentError, "Expected String, got #{type.class}"
     end
 
+    # If no options are specified, pass none
+    if options.empty?
+      large = count = nil
+    end
+
+    # Format options as URL query parameters for final iFrame
+    if options[:large] then size = "&size=large" end
+    if options[:count] then count = "&count=true" end
+
     # Return GitHub Button
-    %Q{<iframe src="http://ghbtns.com/github-btn.html?user=#{@user}&repo=#{@repo}&type=#{action}&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>}
+    %Q(<iframe src="http://ghbtns.com/github-btn.html?user=#{@user}&repo=#{@repo}&type=#{type}#{size}#{count}" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>)
   end
 end
 
