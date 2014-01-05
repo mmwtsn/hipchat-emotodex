@@ -11,11 +11,18 @@ class GHButton
 
   def style(type="follow", options={})
     # Available GitHub Button types
-    types = ['watch', 'fork', 'follow']
+    types = ['fork', 'star', 'follow']
 
     # Ensure button type exists
     unless types.include? type
-      raise ArgumentError, %Q(#{type} button not available. Try "watch", "fork" or "follow")
+      raise ArgumentError, %Q(#{type} button not available. Try "fork", "star" or "follow")
+    end
+
+    # Work around bug in GitHub Button repository
+    # Requesting "watch" actually returns "star"
+    # See: https://github.com/mdo/github-buttons/issues/42#issuecomment-19951052
+    if type == 'star'
+      type = 'watch'
     end
 
     # Ensure argument type is valid

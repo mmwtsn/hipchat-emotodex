@@ -42,16 +42,19 @@ describe GHButton do
       @button.style.match(%r(a-repository)).should be_true
     end
 
-    it 'accepts "watch"' do
-      @button.style("watch").match(%r(watch)).should be_true
+    # This is a bug in GitHub Buttons
+    # Requesting "watch" returns "star"
+    # See: https://github.com/mdo/github-buttons/issues/42#issuecomment-19951052
+    it 'accepts "star"' do
+      @button.style('star').match(%r(watch)).should be_true
     end
 
     it 'accepts "fork"' do
-      @button.style("fork").match(%r(fork)).should be_true
+      @button.style('fork').match(%r(fork)).should be_true
     end
 
     it 'accepts "follow"' do
-      @button.style("follow").match(%r(follow)).should be_true
+      @button.style('follow').match(%r(follow)).should be_true
     end
 
     it 'does not accept an Integer' do
@@ -64,7 +67,7 @@ describe GHButton do
     end
 
     it 'accepts a hash of options for size and count' do
-      b = @button.style('watch', large: true, count: true)
+      b = @button.style('star', large: true, count: true)
       b.match(/size=large.*count=true/).should be_true
     end
   end
