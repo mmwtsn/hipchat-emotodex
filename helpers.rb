@@ -9,7 +9,7 @@ class GHButton
     @repo = repo
   end
 
-  def build(type="follow", options={})
+  def style(type="follow", options={})
     # Available GitHub Button types
     types = ['watch', 'fork', 'follow']
 
@@ -50,7 +50,7 @@ module Helpers
         raise 'HipChat API key not accessible under "HIPCHAT_API" key. See README.'
       end
       
-      # Build GET request to 'emoticon' endpoint of HipChat API v2.0
+      # style GET request to 'emoticon' endpoint of HipChat API v2.0
       self.class.get '/emoticon', query: { 'auth_token' => ENV['HIPCHAT_API'], 'type' => 'group' }
     end
   end

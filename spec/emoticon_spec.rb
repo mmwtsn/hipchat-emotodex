@@ -25,46 +25,46 @@ describe GHButton do
     end
   end
 
-  describe '#build' do
+  describe '#style' do
     it 'returns a correct string' do
-      @button.build.class.should eql String
+      @button.style.class.should eql String
     end
 
     it 'returns the correct string' do
-      @button.build.should eql %Q(<iframe src="http://ghbtns.com/github-btn.html?user=a-user&repo=a-repository&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>)
+      @button.style.should eql %Q(<iframe src="http://ghbtns.com/github-btn.html?user=a-user&repo=a-repository&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="30"></iframe>)
     end
 
     it 'contains the user name' do
-      @button.build.match(%r(a-user)).should be_true
+      @button.style.match(%r(a-user)).should be_true
     end
 
     it 'contains the repo name' do
-      @button.build.match(%r(a-repository)).should be_true
+      @button.style.match(%r(a-repository)).should be_true
     end
 
     it 'accepts "watch"' do
-      @button.build("watch").match(%r(watch)).should be_true
+      @button.style("watch").match(%r(watch)).should be_true
     end
 
     it 'accepts "fork"' do
-      @button.build("fork").match(%r(fork)).should be_true
+      @button.style("fork").match(%r(fork)).should be_true
     end
 
     it 'accepts "follow"' do
-      @button.build("follow").match(%r(follow)).should be_true
+      @button.style("follow").match(%r(follow)).should be_true
     end
 
     it 'does not accept an Integer' do
-      expect{@button.build(12)}.to raise_error(ArgumentError)
+      expect{@button.style(12)}.to raise_error(ArgumentError)
     end
 
     it 'does not accept a non-standard String' do
       b = GHButton.new('mmwtsn', 'hipchat-emotodex')
-      expect{@button.build('bananas')}.to raise_error(ArgumentError)
+      expect{@button.style('bananas')}.to raise_error(ArgumentError)
     end
 
     it 'accepts a hash of options for size and count' do
-      b = @button.build('watch', large: true, count: true)
+      b = @button.style('watch', large: true, count: true)
       b.match(/size=large.*count=true/).should be_true
     end
   end
