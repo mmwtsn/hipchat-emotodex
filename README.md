@@ -9,6 +9,8 @@ Check out the [Do Something Emotodex](http://emoticons.dosomething.org/) for som
 ## Development
 To run the Emotodex locally, you will need Ruby, Ruby Gems, Bundler and [Redis](http://redis.io) installed on your system. Redis is an open source key-value store that is used by the HipChat Emotodex as a cache.
 
+If you are interested in deploying your Emotodex, [Heroku](https://devcenter.heroku.com/articles/quickstart) is a free and easy way to host your app. Check out DoSomething.org's fork of this repository for [a description](https://github.com/DoSomething/hipchat-emotodex#hipchat-emotodex) of the changes needed to deploy to Heroku.
+
 To get started:
 - Visit the [HipChat admin page](https://www.hipchat.com/admin/emoticons) for your group and upload some custom emoticons
 - [Create a HipChat API key](https://hipchat.com/account/api)
