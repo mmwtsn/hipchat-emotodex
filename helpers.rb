@@ -1,5 +1,4 @@
 # Application Helper Methods
-require 'redis'
 require 'json'
 
 module Helpers
