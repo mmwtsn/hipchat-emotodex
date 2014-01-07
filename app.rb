@@ -8,8 +8,7 @@ include Helpers
 
 configure do
   # If cache is not set, create new Redis instance
-  uri = URI.parse(ENV["REDISTOGO_URL"]) # Required for Heroku
-  CACHE ||= Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  CACHE ||= Redis.new
 
   # Ensure value exists in cache before proceeding
   unless emoticons_in(CACHE)
