@@ -68,6 +68,7 @@ $border-color: #ccc;
   h1, h2, h3, h4 {
     color: $header-color;
     text-align: center;
+    -webkit-transform: rotate(-6deg);
     transform: rotate(-6deg);
     @include header-shadow;
   }
