@@ -7,7 +7,8 @@ require './helpers'
 include Helpers
 
 configure do
-  CACHE ||= Redis.new
+  uri = URI.parse(ENV["REDISTOGO_URL"])
+  CACHE ||= Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   unless emoticons_in(CACHE)
     update(CACHE)
   end
