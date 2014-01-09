@@ -3,7 +3,8 @@ $(function() {
   $('.emoticon').hover(function() {
     $('#preview').css('visibility', 'inherit');
     var shortcut = $(this).data('shortcut');
-    $('#shortcut').text(shortcut);
+    $('#preview').removeClass('tada');
+    $('#preview').text("(" + shortcut + ")");
   });
 
   // Cache jQuery Objects
@@ -61,10 +62,24 @@ $(function() {
     }
   });
 
-  // Trigger the copy prompt when an emoticon is clicked
-  $('.emoticon').click(function(e) {
-    copy( '(' + $(this).data('shortcut') + ')' );
-  });
+  // set up ZC
+  ZeroClipboard.setDefaults( { moviePath: '/javascripts/ZeroClipboard.swf' } );
+
+  // Copy the emoticon text to the clipboard when an emoticon is clicked
+  $(document).ready(function() {
+    ZCemoticons = new ZeroClipboard( $(".emoticon") );
+
+    ZCemoticons.on("load", function(client) {
+      client.on("complete", function(client, args) {
+        // `this` is the element that was clicked
+        $("#preview").removeClass("tada");
+        $("#preview").text("Copied text to clipboard: " + args.text );
+        $("#preview").addClass("tada");
+      });
+    });
+ 
+  }); 
+
 
   // ----
   // Misc.
