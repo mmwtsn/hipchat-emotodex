@@ -30,7 +30,7 @@ $border-color: #ccc;
   border-radius: 3px;
   border-bottom: 3px solid #ccc;
 
-  &:hover {
+  &:hover, &.zeroclipboard-is-hover {
     cursor: pointer;
     background: $emoticon-bg-hover;
     border-bottom: 3px solid $emoticon-border-hover;
